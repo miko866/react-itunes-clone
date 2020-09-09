@@ -1,41 +1,64 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react'
+import React, { useState } from 'react'
+import { Song } from '../types'
+import axios from 'axios'
 
-interface Props {}
+// children
+import TunesSearchForm from '../components/tunes/TunesSearchForm'
+import TunesList from '../components/tunes/TunesList'
 
-export const Tunes = (props: Props) => {
-	const [query, setQuery] = useState('')
-	const [songs, setSongs] = useState([
-		{ id: 1, artist: 'Test1', name: 'Name 1' },
-		{ id: 2, artist: 'Test2', name: 'Name 2' },
-		{ id: 3, artist: 'Test3', name: 'Name 3' }
-	])
+// data types
+interface SongFromITunes {
+	trackId: number
+	artistName: string
+	previewUrl: string
+	artworkUrl100?: string
+	trackName: string
+	collectionName: string
+	kind?: string
+}
 
-	const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-		setQuery(e.target.value)
+// component
+const Tunes: React.FC = () => {
+	// state
+	const [songs, setSongs] = useState([])
+
+	// callback
+	const handleSearch = (query: string) => {
+		axios
+			.get(
+				`https://itunes.apple.com/search
+				?term=${encodeURI(query)}
+				&entity=musicTrack
+				&limit=5`
+			)
+			.then(response => {
+				let iTunesSongs = response.data.results
+					.filter((song: SongFromITunes) => song.kind === 'song')
+					.map((song: SongFromITunes) => extractData(song))
+
+				setSongs(iTunesSongs)
+			})
 	}
-	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault()
-		const newSong = {
-			id: Math.max(...songs.map(s => s.id)) + 1,
-			artist: query,
-			name: query
-		}
-		setSongs([...songs, newSong])
+
+	const extractData = ({
+		trackId: id,
+		artistName: artist,
+		previewUrl: audioFile,
+		artworkUrl100: artwork,
+		trackName: title,
+		collectionName: album
+	}: SongFromITunes) => {
+		return { id, artist, audioFile, artwork, title, album } as Song
 	}
 
+	// template
 	return (
-		<div className="tunes">
+		<article className="tunes">
 			<h1>Tunes</h1>
-
-			<form onSubmit={handleSubmit}>
-				<input type="text" value={query} onChange={handleInput} />
-			</form>
-
-			<ul>
-				{songs.map(song => (
-					<li key={song.id}>{JSON.stringify(song)}</li>
-				))}
-			</ul>
-		</div>
+			<TunesSearchForm onSearch={handleSearch} />
+			<TunesList songs={songs} />
+		</article>
 	)
 }
+
+export default Tunes

@@ -1,48 +1,55 @@
 import React from 'react'
 
-interface Props {}
+// styles
+import './About.scss'
 
-export const About = (props: Props) => {
+// component
+const About: React.FC = () => {
 	return (
-		<div className="about">
-			<h1>About</h1>
+		<article className="about">
+			<h1>This is an about page</h1>
+
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				Voluptas ut excepturi consequatur! Dolorum qui, blanditiis
-				repellendus nemo magni, aut modi rem dolores saepe numquam
-				similique ex sit ab nisi at!
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Adipisci rem necessitatibus veritatis officiis iure alias
+				animi nobis quasi corporis modi? Enim ducimus laborum
+				aspernatur iusto atque error quod fugiat eligendi fugit soluta
+				nihil repellat, quos culpa eveniet vitae dolor excepturi
+				necessitatibus nemo eius dolorem, mollitia perferendis
+				adipisci, blanditiis incidunt? Quisquam.
 			</p>
 
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
-				ad saepe ullam soluta, sint distinctio et ratione
-				reprehenderit reiciendis, quam ab vero. Et est reiciendis,
-				accusamus possimus ad ab magni quia asperiores cum mollitia
-				enim repellendus sit sequi at ducimus consectetur ratione sed,
-				ullam molestias molestiae quas reprehenderit? Nulla, corporis
-				molestias autem eius odio vero iste odit blanditiis animi
-				ullam sit! Ea quidem amet unde architecto expedita ipsam
-				distinctio quia aut sequi eos. Ipsa maxime culpa sapiente
-				commodi, soluta perspiciatis labore! Possimus, architecto
-				sequi alias, natus illum consectetur, cum aperiam provident
-				modi cupiditate vero. Vitae illum tempore tenetur nisi
-				voluptas.
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Adipisci rem necessitatibus veritatis officiis iure alias
+				animi nobis quasi corporis modi? Enim ducimus laborum
+				aspernatur iusto atque error quod fugiat eligendi fugit soluta
+				nihil repellat, quos culpa eveniet vitae dolor excepturi
+				necessitatibus nemo eius dolorem, mollitia perferendis
+				adipisci, blanditiis incidunt? Quisquam.
 			</p>
+
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
-				ad saepe ullam soluta, sint distinctio et ratione
-				reprehenderit reiciendis, quam ab vero. Et est reiciendis,
-				accusamus possimus ad ab magni quia asperiores cum mollitia
-				enim repellendus sit sequi at ducimus consectetur ratione sed,
-				ullam molestias molestiae quas reprehenderit? Nulla, corporis
-				molestias autem eius odio vero iste odit blanditiis animi
-				ullam sit! Ea quidem amet unde architecto expedita ipsam
-				distinctio quia aut sequi eos. Ipsa maxime culpa sapiente
-				commodi, soluta perspiciatis labore! Possimus, architecto
-				sequi alias, natus illum consectetur, cum aperiam provident
-				modi cupiditate vero. Vitae illum tempore tenetur nisi
-				voluptas.
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Adipisci rem necessitatibus veritatis officiis iure alias
+				animi nobis quasi corporis modi? Enim ducimus laborum
+				aspernatur iusto atque error quod fugiat eligendi fugit soluta
+				nihil repellat, quos culpa eveniet vitae dolor excepturi
+				necessitatibus nemo eius dolorem, mollitia perferendis
+				adipisci, blanditiis incidunt? Quisquam.
 			</p>
-		</div>
+
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Adipisci rem necessitatibus veritatis officiis iure alias
+				animi nobis quasi corporis modi? Enim ducimus laborum
+				aspernatur iusto atque error quod fugiat eligendi fugit soluta
+				nihil repellat, quos culpa eveniet vitae dolor excepturi
+				necessitatibus nemo eius dolorem, mollitia perferendis
+				adipisci, blanditiis incidunt? Quisquam.
+			</p>
+		</article>
 	)
 }
+
+export default About

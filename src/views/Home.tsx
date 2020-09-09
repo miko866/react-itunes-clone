@@ -1,29 +1,27 @@
-import React, { useState, useEffect } from 'react'
-import logo from '../assets/logo.svg'
+import React, { useState } from 'react'
 
+// styles
 import './Home.scss'
 
-interface Props {}
+// assets
+import logo from '../assets/logo.svg'
 
-export const Home = (props: Props) => {
-	const [title, setTitle] = useState('React, is here!')
-
-	useEffect(() => {
-		document.title = title
-	})
+const Home: React.FC = () => {
+	const [title] = useState('React, whee!!')
 
 	return (
 		<div className="home">
-			<img src={logo} className="logo" alt="logo" />
+			<img className="logo" src={logo} alt="react logo" />
+
 			<h1>{title}</h1>
 
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Quidem nihil magnam dolore aliquam. &nbsp;
+				Lorem ipsum dolor sit amet <br />
+				React.js.&nbsp;
 				<a
 					href="https://reactjs.org/docs"
 					target="_blank"
-					rel="noreferrer"
+					rel="noopener noreferrer"
 				>
 					documentation
 				</a>
@@ -32,3 +30,5 @@ export const Home = (props: Props) => {
 		</div>
 	)
 }
+
+export default Home
